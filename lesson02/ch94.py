@@ -6,6 +6,7 @@ try:
 except:
 	print 'File cannot be opened:',fname
 	exit()
+
 emailadd=list()
 somestuff=list()
 alladd=dict()
@@ -15,11 +16,13 @@ for line in fhand:
     if line.startswith("From "):
 		somestuff=line.split()
 		emailadd.append(somestuff[1])
+
 #now taking the complete email list, the email addresses will be counted per occurance
 #and stored in a dictionary called alladd (all addresses) with the number of time each 
 #occurred
 for email in emailadd:
 	alladd[email]=alladd.get(email,0)+1
+
 #now we will count occurances of each email address from the 
 #alladd dictionary and save the largest count and the corresponding email
 bigcount=None
@@ -28,4 +31,5 @@ for email,count in alladd.items():
 	if bigcount is None or count>bigcount:	
 		bigcount=count
 		bigemail=email
+
 print bigemail, bigcount
