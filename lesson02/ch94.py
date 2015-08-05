@@ -1,6 +1,7 @@
 # use mbox-short.txt as file name, and search for email addresses
 # make a file such that the email address that occurs the most can be accessed
-fname = raw_input("Enter file name: ")
+# fname = raw_input("Enter file name: ")
+fname = "mbox-short.txt"
 try:
 	fhand=open(fname, 'r')
 except:
@@ -21,7 +22,10 @@ for line in fhand:
 #and stored in a dictionary called alladd (all addresses) with the number of time each 
 #occurred
 for email in emailadd:
-	alladd[email]=alladd.get(email,0)+1
+  if email in alladd:
+    alladd[email] += 1
+  else:
+    alladd[email] = 1
 
 #now we will count occurances of each email address from the 
 #alladd dictionary and save the largest count and the corresponding email
