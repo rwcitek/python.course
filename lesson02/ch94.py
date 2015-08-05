@@ -9,14 +9,14 @@ except:
   exit()
 
 emailadd=list()
-somestuff=""
+email=""
 alladd=dict()
 #this section should produce a list of email addresses
 #somestuff is all the split text in the line, with emailadd being just the email address
 for line in fhand:
   if line.startswith("From "):
-    somestuff=line.split()[1]
-    emailadd.append(somestuff)
+    email=line.split()[1]
+    emailadd.append(email)
 
 #now taking the complete email list, the email addresses will be counted per occurance
 #and stored in a dictionary called alladd (all addresses) with the number of time each 
