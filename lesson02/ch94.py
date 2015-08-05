@@ -2,7 +2,7 @@
 # make a file such that the email address that occurs the most can be accessed
 fname = raw_input("Enter file name: ")
 try:
-	fhand=open(fname)
+	fhand=open(fname, 'r')
 except:
 	print 'File cannot be opened:',fname
 	exit()
