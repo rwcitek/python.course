@@ -3,10 +3,10 @@
 # fname = raw_input("Enter file name: ")
 fname = "mbox-short.txt"
 try:
-	fhand=open(fname, 'r')
+  fhand=open(fname, 'r')
 except:
-	print 'File cannot be opened:',fname
-	exit()
+  print 'File cannot be opened:',fname
+  exit()
 
 emailadd=list()
 somestuff=list()
@@ -14,9 +14,9 @@ alladd=dict()
 #this section should produce a list of email addresses
 #somestuff is all the split text in the line, with emailadd being just the email address
 for line in fhand:
-    if line.startswith("From "):
-		somestuff=line.split()
-		emailadd.append(somestuff[1])
+  if line.startswith("From "):
+    somestuff=line.split()
+    emailadd.append(somestuff[1])
 
 #now taking the complete email list, the email addresses will be counted per occurance
 #and stored in a dictionary called alladd (all addresses) with the number of time each 
@@ -32,8 +32,8 @@ for email in emailadd:
 bigcount=None
 bigemail=None
 for email,count in alladd.items():
-	if bigcount is None or count>bigcount:	
-		bigcount=count
-		bigemail=email
+  if bigcount is None or count>bigcount:	
+    bigcount=count
+    bigemail=email
 
 print bigemail, bigcount
