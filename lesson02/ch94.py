@@ -1,18 +1,17 @@
 # use mbox-short.txt as file name, and search for email addresses
 # make a file such that the email address that occurs the most can be accessed
-# fname = raw_input("Enter file name: ")
 fname = "mbox-short.txt"
+fname = raw_input("Enter file name: ")
 try:
   fhand=open(fname, 'r')
 except:
   print 'File cannot be opened:',fname
   exit()
 
-emailadd=list()
-email=""
 alladd=dict()
-#this section should produce a list of email addresses
-#somestuff is all the split text in the line, with emailadd being just the email address
+email=""
+#this section should produce a dictionary with ...
+# the email address as the key and the count as the value
 for line in fhand:
   if line.startswith("From "):
     email=line.split()[1]
@@ -23,11 +22,12 @@ for line in fhand:
 
 #now we will count occurances of each email address from the 
 #alladd dictionary and save the largest count and the corresponding email
-bigcount=None
 bigemail=None
+bigcount=None
 for email,count in alladd.items():
   if bigcount is None or count>bigcount:	
-    bigcount=count
     bigemail=email
+    bigcount=count
 
 print bigemail, bigcount
+
