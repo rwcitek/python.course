@@ -16,16 +16,10 @@ alladd=dict()
 for line in fhand:
   if line.startswith("From "):
     email=line.split()[1]
-    emailadd.append(email)
-
-#now taking the complete email list, the email addresses will be counted per occurance
-#and stored in a dictionary called alladd (all addresses) with the number of time each 
-#occurred
-for email in emailadd:
-  if email in alladd:
-    alladd[email] += 1
-  else:
-    alladd[email] = 1
+    if email in alladd:
+      alladd[email] += 1
+    else:
+      alladd[email] = 1
 
 #now we will count occurances of each email address from the 
 #alladd dictionary and save the largest count and the corresponding email
